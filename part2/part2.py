@@ -32,7 +32,7 @@ def draw_matches(imgA, imgB, kpA, kpB, matches, status):
         if s == 1:
             ptA = (int(kpA[queryIdx][0]), int(kpA[queryIdx][1]))
             ptB = (int(kpB[trainIdx][0]) + wA, int(kpB[trainIdx][1]))
-            cv2.line(viz, ptA, ptB, (0, 255, 0), 1)
+            cv2.line(viz, ptA, ptB, (255, 0, 0), 1)
     return viz
 
 def crop(image):
