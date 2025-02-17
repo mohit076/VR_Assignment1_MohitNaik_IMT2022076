@@ -1,12 +1,12 @@
 # VR_Assignment1_MohitNaik_IMT2022076
 
-### Part 1: Use computer vision techniques to Detect, segment, and count coins from an image containing scattered Indian coins.
+### Part 1: Use Computer Vision techniques to detect, segment, and count coins from an image containing scattered Indian coins.
 
-- **Preprocessing** - Converted image to grayscale, resized to a fixed scale, blurred it to reduce noise and used adaptive thresholding to create a binary image where coins are highlighted.
+- **Preprocessing** - Converted image to grayscale, resized to a fixed scale, applied Gaussian blurring to reduce noise and used adaptive thresholding to create a binary image where coins are highlighted.
 
 - **Region-based Segmentation** - Isolated and detected individual coins using contours and circularity measures.
 
-- **Output** - Save images with coin outlines, and display the total number of coins present in the images.
+- **Output** - Images with coin outlines are saved, and the total number of coins present in the images is printed on the terminal.
 
 - **Results and Observations** - Performed well with various camera angles and scales. Performed poorly with dark backgrounds and closely spaced coins.
 
@@ -23,6 +23,8 @@ python3 part1.py
 ```
 
 This will output the number of coins in each image on the terminal, while saving the coin outlines for each image in the `output` directory, labeled `0_outline.jpg`,`1_outline.jpg` etc.
+
+---
 
 ### Part 2: Create a stitched panorama from multiple overlapping images.
 
