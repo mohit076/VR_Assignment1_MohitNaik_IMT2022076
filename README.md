@@ -4,7 +4,7 @@
 
 - **Preprocessing** - Converted image to grayscale, resized to a fixed scale, applied Gaussian blurring to reduce noise and used adaptive thresholding to create a binary image where coins are highlighted.
 
-- **Region-based Segmentation** - Isolated and detected individual coins using contours and circularity measures.
+- **Region-based Segmentation** - Isolated, detected and segmented individual coins using contours and circularity measures.
 
 - **Output** - Images with coin outlines are saved, and the total number of coins present in the images is printed on the terminal.
 
@@ -12,7 +12,7 @@
 
 #### **How to Run**
 
-Requirements - `python` with  `numpy` and `opencv` installed
+Requirements - `python` with  `numpy` and `opencv` installed (Windows with OpenCV version 4.10.0)
 
 In the `part1` directory, the `input` directory contains the input images labeled `0.jpg`,`1.jpg` etc. 
 
@@ -22,7 +22,7 @@ To run the code, use the command
 python3 part1.py
 ```
 
-This will output the number of coins in each image on the terminal, while saving the coin outlines for each image in the `output` directory, labeled `0_outline.jpg`,`1_outline.jpg` etc.
+This will output the number of coins in each image on the terminal, while saving the coin outlines for each image in the `output` directory, labeled `0_output.jpg`,`1_output.jpg` etc.
 
 ---
 
@@ -42,9 +42,9 @@ This will output the number of coins in each image on the terminal, while saving
 
 #### **How to Run**
 
-Requirements - `python` with  `numpy` and `opencv` installed
+Requirements - `python` with  `numpy` and `opencv` installed (Windows with OpenCV version 4.10.0)
 
-In the `part2` directory, the `input1` and `input2` directorys contain two distinct sets of overlapping images, labeled `0.jpg`,`1.jpg` etc. The input directory to be used can be selected by changing the last line of `part2.py`.
+In the `part2` directory, the `input1` and `input2` directories contain two distinct sets of overlapping images, labeled `0.jpg`,`1.jpg` etc. The code will work on both the directories and save output images in the `output` directory.
 
 To run the code, use the command
 
@@ -52,7 +52,7 @@ To run the code, use the command
 python3 part2.py
 ```
 
-This will save the panorama image as `panorama.jpg` in the `output` directory. It will also save the matching keypoint images as `match_1.jpg`,`match_2.jpg` etc.
+This will save the panorama images as `input1_panorama.jpg` and `input2_panorama.jpg` in the `output` directory. It will also save the matching keypoint images as `input1_match1.jpg`,`input1_match2.jpg` etc.
 
 ---
 
