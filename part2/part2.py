@@ -20,7 +20,7 @@ def match_keypoints(kpA, kpB, xA, xB, ratio, re_proj):
     if len(matches) > 4:
         ptsA = np.float32([kpA[i] for (_, i) in matches])
         ptsB = np.float32([kpB[i] for (i, _) in matches])  
-        H, status = cv2.findHomography(ptsA, ptsB, cv2.RANSAC, re_proj)  # Compute the homography matrix using RANSAC
+        H, status = cv2.findHomography(ptsA, ptsB, cv2.RANSAC, re_proj)  # Homography using RANSAC
         return (matches, H, status)
     return None
 
@@ -31,12 +31,14 @@ def draw_matches(imgA, imgB, kpA, kpB, matches, status):
     viz = np.zeros((max(hA, hB), wA + wB, 3), dtype="uint8")
     viz[0:hA, 0:wA] = imgA
     viz[0:hB, wA:] = imgB
-    
+    line_number = 0
     for ((trainIdx, queryIdx), s) in zip(matches, status):
         if s == 1:
             ptA = (int(kpA[queryIdx][0]), int(kpA[queryIdx][1]))
             ptB = (int(kpB[trainIdx][0]) + wA, int(kpB[trainIdx][1]))
-            cv2.line(viz, ptA, ptB, (255, 0, 0), 1)
+            if line_number < 100: # Drawing only 100 lines to reduce clutter
+                cv2.line(viz, ptA, ptB, (0, 0, 255), 1)
+                line_number += 1
     return viz
 
 # Function to crop the image to the region of interest (ROI) after stitching
@@ -92,9 +94,10 @@ def process_images(input_folder, output_folder):
         if result is None:
             continue
         left, viz = result
-        cv2.imwrite(os.path.join(output_folder, f"match_{i}.jpg"), viz)
+        cv2.imwrite(os.path.join(output_folder, f"{input_folder}_match_{i}.jpg"), viz)
 
-    cv2.imwrite(os.path.join(output_folder, "panorama.jpg"), left)
-    print("Panorama created and saved in output folder.\n")
+    cv2.imwrite(os.path.join(output_folder, f"{input_folder}_panorama.jpg"), left)
+    print(f"Panorama for {input_folder} created and saved in output folder.")
 
 process_images("input1", "output")
+process_images("input2", "output")
