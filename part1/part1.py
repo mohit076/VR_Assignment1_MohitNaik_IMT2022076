@@ -26,7 +26,7 @@ def detect_coins(binary_thresh, scale_factor):
                 coin_shapes.append(shape)
     return coin_shapes
 
-# Function to segment the coins: keep only the coins and make the background black
+# Function to apply region-based segmentation on coins
 def segment_coins(image, binary_thresh, coin_shapes):
     mask = np.zeros_like(binary_thresh)
     cv2.drawContours(mask, coin_shapes, -1, 255, thickness=cv2.FILLED)
