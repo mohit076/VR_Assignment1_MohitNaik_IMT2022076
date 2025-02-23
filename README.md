@@ -1,12 +1,12 @@
 # VR_Assignment1_MohitNaik_IMT2022076
 
-### Part 1: Use Computer Vision techniques to detect, segment, and count coins from an image containing scattered Indian coins.
+### Part 1: Use Computer Vision techniques to detect, segment, and count coins from an image containing scattered Indian coins
 
 - **Preprocessing** - Converted image to grayscale, resized to a fixed scale, applied Gaussian blurring to reduce noise and used adaptive thresholding to create a binary image where coins are highlighted.
 
 - **Region-based Segmentation** - Isolated, detected and segmented individual coins using contours and circularity measures.
 
-- **Output** - Images with coin outlines are saved, and the total number of coins present in the images is printed on the terminal.
+- **Output** - Images with coin outlines are saved along with croped images for individual coins, and the total number of coins present in the images is printed on the terminal.
 
 - **Results and Observations** - Performed well with various camera angles and scales. Performed poorly with dark backgrounds and closely spaced coins.
 
@@ -14,19 +14,19 @@
 
 Requirements - `python` with  `numpy` and `opencv` installed (Windows with OpenCV version 4.10.0)
 
-In the `part1` directory, the `input` directory contains the input images labeled `0.jpg`,`1.jpg` etc. 
+In the `part1` directory, the `input` directory contains the input images labeled `0.jpg`,`1.jpg` etc.  
 
 To run the code, use the command
 
-```
+```python
 python3 part1.py
 ```
 
-This will output the number of coins in each image on the terminal, while saving the coin outlines for each image in the `output` directory, labeled `0_output.jpg`,`1_output.jpg` etc.
+This will output the number of coins in each image on the terminal, while saving the coin outlines for each image in the `output/outlined` directory, labeled `0_output.jpg`,`1_output.jpg` etc. It will also save individual segmented and cropped coins in the `output/segmented` directory.
 
 ---
 
-### Part 2: Create a stitched panorama from multiple overlapping images.
+### Part 2: Create a stitched panorama from multiple overlapping images
 
 - Used **SIFT (Scale-Invariant Feature Transform)** to detect keypoints and extract descriptors.
 
@@ -48,7 +48,7 @@ In the `part2` directory, the `input1` and `input2` directories contain two dist
 
 To run the code, use the command
 
-```
+```python
 python3 part2.py
 ```
 
